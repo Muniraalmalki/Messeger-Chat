@@ -16,6 +16,7 @@
 		E23F0A632729469C00AE0422 /* MessengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A622729469C00AE0422 /* MessengerTests.swift */; };
 		E23F0A6D2729469D00AE0422 /* MessengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A6C2729469D00AE0422 /* MessengerUITests.swift */; };
 		E23F0A6F2729469D00AE0422 /* MessengerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A6E2729469D00AE0422 /* MessengerUITestsLaunchTests.swift */; };
+		E23F0A7D27296B2F00AE0422 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A7C27296B2F00AE0422 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E23F0A682729469D00AE0422 /* MessengerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessengerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23F0A6C2729469D00AE0422 /* MessengerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerUITests.swift; sourceTree = "<group>"; };
 		E23F0A6E2729469D00AE0422 /* MessengerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E23F0A7C27296B2F00AE0422 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +101,11 @@
 		E23F0A4A2729469400AE0422 /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
-				E23F0A4B2729469400AE0422 /* AppDelegate.swift */,
-				E23F0A4D2729469400AE0422 /* SceneDelegate.swift */,
+				E23F0A8127296C1C00AE0422 /* View Models */,
+				E23F0A8027296BF500AE0422 /* Views */,
+				E23F0A7F27296BD100AE0422 /* Models */,
+				E23F0A7E27296B7D00AE0422 /* Controllers */,
+				E23F0A7B27296AA100AE0422 /* Resources */,
 				E23F0A4F2729469400AE0422 /* ViewController.swift */,
 				E23F0A512729469400AE0422 /* Main.storyboard */,
 				E23F0A542729469B00AE0422 /* Assets.xcassets */,
@@ -125,6 +130,44 @@
 				E23F0A6E2729469D00AE0422 /* MessengerUITestsLaunchTests.swift */,
 			);
 			path = MessengerUITests;
+			sourceTree = "<group>";
+		};
+		E23F0A7B27296AA100AE0422 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E23F0A4D2729469400AE0422 /* SceneDelegate.swift */,
+				E23F0A4B2729469400AE0422 /* AppDelegate.swift */,
+				E23F0A7C27296B2F00AE0422 /* Extension.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E23F0A7E27296B7D00AE0422 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E23F0A7F27296BD100AE0422 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E23F0A8027296BF500AE0422 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E23F0A8127296C1C00AE0422 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +304,7 @@
 				E23F0A502729469400AE0422 /* ViewController.swift in Sources */,
 				E23F0A4C2729469400AE0422 /* AppDelegate.swift in Sources */,
 				E23F0A4E2729469400AE0422 /* SceneDelegate.swift in Sources */,
+				E23F0A7D27296B2F00AE0422 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
