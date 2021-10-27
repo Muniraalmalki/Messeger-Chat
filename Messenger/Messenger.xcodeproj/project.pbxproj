@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E23F0A4C2729469400AE0422 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A4B2729469400AE0422 /* AppDelegate.swift */; };
 		E23F0A4E2729469400AE0422 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A4D2729469400AE0422 /* SceneDelegate.swift */; };
-		E23F0A502729469400AE0422 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A4F2729469400AE0422 /* ViewController.swift */; };
+		E23F0A502729469400AE0422 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A4F2729469400AE0422 /* LoginViewController.swift */; };
 		E23F0A532729469400AE0422 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E23F0A512729469400AE0422 /* Main.storyboard */; };
 		E23F0A552729469B00AE0422 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E23F0A542729469B00AE0422 /* Assets.xcassets */; };
 		E23F0A582729469B00AE0422 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E23F0A562729469B00AE0422 /* LaunchScreen.storyboard */; };
@@ -17,6 +17,10 @@
 		E23F0A6D2729469D00AE0422 /* MessengerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A6C2729469D00AE0422 /* MessengerUITests.swift */; };
 		E23F0A6F2729469D00AE0422 /* MessengerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A6E2729469D00AE0422 /* MessengerUITestsLaunchTests.swift */; };
 		E23F0A7D27296B2F00AE0422 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A7C27296B2F00AE0422 /* Extension.swift */; };
+		E23F0A862729771C00AE0422 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A852729771C00AE0422 /* RegisterViewController.swift */; };
+		E23F0A882729777C00AE0422 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A872729777C00AE0422 /* ConversationViewController.swift */; };
+		E23F0A8A272977B300AE0422 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A89272977B300AE0422 /* NewConversationViewController.swift */; };
+		E23F0A8D2729783300AE0422 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A8C2729783300AE0422 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +44,7 @@
 		E23F0A482729469400AE0422 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23F0A4B2729469400AE0422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E23F0A4D2729469400AE0422 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E23F0A4F2729469400AE0422 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E23F0A4F2729469400AE0422 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E23F0A522729469400AE0422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E23F0A542729469B00AE0422 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E23F0A572729469B00AE0422 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +55,10 @@
 		E23F0A6C2729469D00AE0422 /* MessengerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerUITests.swift; sourceTree = "<group>"; };
 		E23F0A6E2729469D00AE0422 /* MessengerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E23F0A7C27296B2F00AE0422 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		E23F0A852729771C00AE0422 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		E23F0A872729777C00AE0422 /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		E23F0A89272977B300AE0422 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		E23F0A8C2729783300AE0422 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,15 +109,10 @@
 		E23F0A4A2729469400AE0422 /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
-				E23F0A8127296C1C00AE0422 /* View Models */,
-				E23F0A8027296BF500AE0422 /* Views */,
-				E23F0A7F27296BD100AE0422 /* Models */,
-				E23F0A7E27296B7D00AE0422 /* Controllers */,
 				E23F0A7B27296AA100AE0422 /* Resources */,
-				E23F0A4F2729469400AE0422 /* ViewController.swift */,
-				E23F0A512729469400AE0422 /* Main.storyboard */,
-				E23F0A542729469B00AE0422 /* Assets.xcassets */,
-				E23F0A562729469B00AE0422 /* LaunchScreen.storyboard */,
+				E23F0A8027296BF500AE0422 /* Views */,
+				E23F0A7E27296B7D00AE0422 /* Controllers */,
+				E23F0A7F27296BD100AE0422 /* Models */,
 				E23F0A592729469B00AE0422 /* Info.plist */,
 			);
 			path = Messenger;
@@ -145,6 +148,9 @@
 		E23F0A7E27296B7D00AE0422 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E23F0A8B2729780900AE0422 /* Profile */,
+				E23F0A842729755100AE0422 /* Conversation */,
+				E23F0A82272974CD00AE0422 /* Authentication */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -159,15 +165,45 @@
 		E23F0A8027296BF500AE0422 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E23F0A832729750800AE0422 /* Storyboards */,
+				E23F0A542729469B00AE0422 /* Assets.xcassets */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		E23F0A8127296C1C00AE0422 /* View Models */ = {
+		E23F0A82272974CD00AE0422 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				E23F0A852729771C00AE0422 /* RegisterViewController.swift */,
+				E23F0A4F2729469400AE0422 /* LoginViewController.swift */,
 			);
-			path = "View Models";
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E23F0A832729750800AE0422 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E23F0A562729469B00AE0422 /* LaunchScreen.storyboard */,
+				E23F0A512729469400AE0422 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E23F0A842729755100AE0422 /* Conversation */ = {
+			isa = PBXGroup;
+			children = (
+				E23F0A872729777C00AE0422 /* ConversationViewController.swift */,
+				E23F0A89272977B300AE0422 /* NewConversationViewController.swift */,
+			);
+			path = Conversation;
+			sourceTree = "<group>";
+		};
+		E23F0A8B2729780900AE0422 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E23F0A8C2729783300AE0422 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,9 +337,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E23F0A502729469400AE0422 /* ViewController.swift in Sources */,
+				E23F0A502729469400AE0422 /* LoginViewController.swift in Sources */,
+				E23F0A8A272977B300AE0422 /* NewConversationViewController.swift in Sources */,
+				E23F0A862729771C00AE0422 /* RegisterViewController.swift in Sources */,
+				E23F0A882729777C00AE0422 /* ConversationViewController.swift in Sources */,
 				E23F0A4C2729469400AE0422 /* AppDelegate.swift in Sources */,
 				E23F0A4E2729469400AE0422 /* SceneDelegate.swift in Sources */,
+				E23F0A8D2729783300AE0422 /* ProfileViewController.swift in Sources */,
 				E23F0A7D27296B2F00AE0422 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
