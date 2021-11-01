@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     
@@ -19,34 +20,34 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
-    
-   
-    
-    
-    
+
     @IBAction func loginInButton(_ sender: UIButton) {
         loginUser()
     }
       
     func loginUser(){
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { authResult, error in
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion:{ authResult, error in
+           
             guard let result = authResult, error == nil else {
-                print("Failed to log in user with email \(self.emailTextField)")
+                print("Failed to log in user with email \(self.emailTextField.text)")
                     return
                 }
                 let user = result.user
-                print("logged in user: \(user)")
-        
+            print("logged in user: \(user)")
+            let conversationVC = self.storyboard?.instantiateViewController(withIdentifier: "converstaionVC") as! ConversationsViewController
+            self.navigationController?.pushViewController(conversationVC, animated: true)
+            
+          
+            
 //            if  let error = error {
 //                print("Error Status : \(error.localizedDescription)")
 //                self.showAlter(message: error.localizedDescription)
 //            } else {
 //                self.showAlter(message: "Please enter a vaild email")
 //            }
-        }
+        })
+   
     }
-    
 //    func showAlter(message : String){
 //        let alterVC = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
 //        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)

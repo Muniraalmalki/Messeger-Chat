@@ -21,7 +21,7 @@ class RegisterViewController: UIViewController  {
     @IBOutlet weak var imagePicker: UIButton!
     
    
-    
+  
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +56,8 @@ class RegisterViewController: UIViewController  {
                     }
                     let user = result.user
                     print("Created User: \(user)")
+            
+                
 //                if let error = error {
 //                    self.showAlter(message: error.localizedDescription)
 //                    print(error.localizedDescription)

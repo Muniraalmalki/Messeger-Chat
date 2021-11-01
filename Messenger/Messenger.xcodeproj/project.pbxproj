@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E20BB1CB272C6DBF00E495B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E20BB1CA272C6DBF00E495B4 /* GoogleService-Info.plist */; };
 		E20BB1D1272CDAE800E495B4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E20BB1D0272CDAE800E495B4 /* FirebaseAnalytics */; };
 		E20BB1D3272CDAE800E495B4 /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = E20BB1D2272CDAE800E495B4 /* FirebaseAnalyticsSwift-Beta */; };
 		E20BB1D5272CDAE800E495B4 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = E20BB1D4272CDAE800E495B4 /* FirebaseAnalyticsWithoutAdIdSupport */; };
@@ -34,6 +33,8 @@
 		E20BB1FF272CDAE800E495B4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E20BB1FE272CDAE800E495B4 /* FirebaseStorage */; };
 		E20BB201272CDAE800E495B4 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E20BB200272CDAE800E495B4 /* FirebaseStorageCombine-Community */; };
 		E20BB203272CDAE800E495B4 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = E20BB202272CDAE800E495B4 /* FirebaseStorageSwift-Beta */; };
+		E20BB205272E8CEA00E495B4 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20BB204272E8CE900E495B4 /* DatabaseManager.swift */; };
+		E20BB215272F262400E495B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E20BB214272F262400E495B4 /* GoogleService-Info.plist */; };
 		E23F0A4C2729469400AE0422 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A4B2729469400AE0422 /* AppDelegate.swift */; };
 		E23F0A4E2729469400AE0422 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A4D2729469400AE0422 /* SceneDelegate.swift */; };
 		E23F0A502729469400AE0422 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23F0A4F2729469400AE0422 /* LoginViewController.swift */; };
@@ -68,7 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E20BB1CA272C6DBF00E495B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E20BB204272E8CE900E495B4 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		E20BB214272F262400E495B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E23F0A482729469400AE0422 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23F0A4B2729469400AE0422 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E23F0A4D2729469400AE0422 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,7 +170,7 @@
 				E23F0A7E27296B7D00AE0422 /* Controllers */,
 				E23F0A7F27296BD100AE0422 /* Models */,
 				E23F0A592729469B00AE0422 /* Info.plist */,
-				E20BB1CA272C6DBF00E495B4 /* GoogleService-Info.plist */,
+				E20BB214272F262400E495B4 /* GoogleService-Info.plist */,
 			);
 			path = Messenger;
 			sourceTree = "<group>";
@@ -196,6 +198,7 @@
 				E23F0A4D2729469400AE0422 /* SceneDelegate.swift */,
 				E23F0A4B2729469400AE0422 /* AppDelegate.swift */,
 				E23F0A7C27296B2F00AE0422 /* Extension.swift */,
+				E20BB204272E8CE900E495B4 /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -397,7 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E23F0A582729469B00AE0422 /* LaunchScreen.storyboard in Resources */,
-				E20BB1CB272C6DBF00E495B4 /* GoogleService-Info.plist in Resources */,
+				E20BB215272F262400E495B4 /* GoogleService-Info.plist in Resources */,
 				E23F0A552729469B00AE0422 /* Assets.xcassets in Resources */,
 				E23F0A532729469400AE0422 /* Main.storyboard in Resources */,
 			);
@@ -432,6 +435,7 @@
 				E23F0A4E2729469400AE0422 /* SceneDelegate.swift in Sources */,
 				E23F0A8D2729783300AE0422 /* ProfileViewController.swift in Sources */,
 				E23F0A7D27296B2F00AE0422 /* Extension.swift in Sources */,
+				E20BB205272E8CEA00E495B4 /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
