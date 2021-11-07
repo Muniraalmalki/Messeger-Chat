@@ -8,10 +8,14 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-
+import FirebaseDatabase
+import FirebaseStorage
+import JGProgressHUD
 
 class RegisterViewController: UIViewController  {
-    var selectedImage = UIImagePickerController()
+    private let spinner = JGProgressHUD()
+    
+    var selectedImage :UIImage?
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -44,7 +48,58 @@ class RegisterViewController: UIViewController  {
 
     
     @IBAction func registerButton(_ sender: UIButton) {
-        createAccount()
+        guard let email = emailTextField.text ,
+              let firstName = firstNameTextField.text,
+                let lastName = lastNameTextField.text,
+              let password = PasswordTextField.text ,
+              !email.isEmpty,
+              !password.isEmpty,
+              password.count >= 6 else{
+                  self.showAlter(message: "enter all options")
+                  return
+              }
+        spinner.show(in: view)
+        DatabaseManger.shared.userExists(with: email, completion: {[weak self] exists in
+            guard let strongSelf = self else {
+                return
+            }
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss()
+            }
+            guard !exists else{
+                strongSelf.showAlter(message: "looks like a user")
+                return
+            }
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult,error in
+              
+                guard authResult != nil , error == nil else {
+                    print("Error cresting user")
+                    return
+                }
+                let chatUser = ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email)
+                DatabaseManger.shared.insertUser(with: chatUser , completion: {success in
+                    if success {
+                         // upload image
+                        guard let image = strongSelf.selectedImage, let data = image.pngData() else {
+                            return
+                        }
+                        let fileName = chatUser.profilePictureUrl
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: {result in
+                                switch result{
+                                case .success(let downloadURL):
+                                    print(downloadURL)
+                                    UserDefaults.standard.set(downloadURL, forKey: "profile_picture_URL")
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                                    
+                                
+                            }
+                        })
+                    }
+                })
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
+        })
     }
     func createAccount(){
         if emailTextField.text! != nil || emailTextField.text! != "" {
@@ -73,12 +128,12 @@ class RegisterViewController: UIViewController  {
 
      }}
     
-//    func showAlter(message : String){
-//        let alterVC = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
-//        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-//        alterVC.addAction(action)
-//        self.present(alterVC, animated: true, completion: nil)
-//    }
+  func showAlter(message : String){
+       let alterVC = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
+      let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+      alterVC.addAction(action)
+       self.present(alterVC, animated: true, completion: nil)
+   }
 
     
 }
@@ -122,6 +177,8 @@ extension RegisterViewController: UIImagePickerControllerDelegate , UINavigation
                 guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
                     return
                 }
+        
+        self.selectedImage = selectedImage
 
                 self.imageView.image = selectedImage
                 
@@ -133,6 +190,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate , UINavigation
         dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            picker.dismiss(animated: true, completion: nil)
-        }
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
+

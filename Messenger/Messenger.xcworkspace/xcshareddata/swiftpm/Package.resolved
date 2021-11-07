@@ -33,7 +33,7 @@
         "repositoryURL": "https://github.com/firebase/firebase-ios-sdk",
         "state": {
           "branch": "master",
-          "revision": "bdaa274fa299669be47ea2e4379fa7ec23db6b7a",
+          "revision": "0e15427fce0c6039d58d6b2ed634df4350599500",
           "version": null
         }
       },
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/google/GoogleAppMeasurement.git",
         "state": {
           "branch": null,
-          "revision": "1f13198b27eb2ac844953dad267bc25639128c41",
-          "version": "8.9.0"
+          "revision": "9b2f6aca5b4685c45f9f5481f19bee8e7982c538",
+          "version": "8.9.1"
         }
       },
       {
