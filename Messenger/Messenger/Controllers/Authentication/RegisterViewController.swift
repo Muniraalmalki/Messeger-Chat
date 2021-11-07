@@ -66,6 +66,8 @@ class RegisterViewController: UIViewController  {
             DispatchQueue.main.async {
                 strongSelf.spinner.dismiss()
             }
+            UserDefaults.standard.set(email,forKey: "email")
+            UserDefaults.standard.set("\(firstName) \(lastName)",forKey: "name")
             guard !exists else{
                 strongSelf.showAlter(message: "looks like a user")
                 return
@@ -101,32 +103,7 @@ class RegisterViewController: UIViewController  {
             })
         })
     }
-    func createAccount(){
-        if emailTextField.text! != nil || emailTextField.text! != "" {
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: PasswordTextField.text!)
-            { ( authResult: AuthDataResult? , error ) in
-                guard let result = authResult, error == nil else {
-                        print("Error creating user")
-                        return
-                    }
-                    let user = result.user
-                    print("Created User: \(user)")
-            
-                
-//                if let error = error {
-//                    self.showAlter(message: error.localizedDescription)
-//                    print(error.localizedDescription)
-//                }else  {
-//                    print("user succesfully created account : \(self.emailTextField.text!)")
-//                }
-            }}
-     else {
-        //showAlter(message: "Please enter a vaild email")
-         let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginVC") as! LoginViewController
-         navigationController?.popViewController(animated: true)
-         
-
-     }}
+   
     
   func showAlter(message : String){
        let alterVC = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
@@ -182,11 +159,6 @@ extension RegisterViewController: UIImagePickerControllerDelegate , UINavigation
 
                 self.imageView.image = selectedImage
                 
-//        if let editImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-//            imageView.image = editImage
-//        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//            imageView.image = originalImage
-//        }
         dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

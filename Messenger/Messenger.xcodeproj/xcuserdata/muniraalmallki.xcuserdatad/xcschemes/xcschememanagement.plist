@@ -7,7 +7,7 @@
 		<key>Messenger.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<key>Promises (Playground) 1.xcscheme</key>
 		<dict>
@@ -50,6 +50,24 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>E23F0A472729469400AE0422</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E23F0A5D2729469C00AE0422</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E23F0A672729469D00AE0422</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

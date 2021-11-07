@@ -8,7 +8,8 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-//import FirebaseFirestore
+import FacebookCore
+import FacebookLogin
 import FirebaseStorage
 import JGProgressHUD
 class LoginViewController: UIViewController {
@@ -22,6 +23,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
     override func viewDidLoad() {
     
         super.viewDidLoad()
@@ -30,13 +32,14 @@ class LoginViewController: UIViewController {
 //        if let token = AccessToken.current,
 //            !token.isExpired {
 //            let token = token.tokenString
-//
+//        }
             // User is logged in, do work such as go to next view controller.
             
             
             // Extend the code sample from 6a. Add Facebook Login to Your Code
             // Add to your viewDidLoad method:
-        //    facebookButton.permissions = ["public_profile", "email"]
+        // facebookButton.permissions = ["public_profile", "email"]
+        
             
         }
     
@@ -45,7 +48,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginInButton(_ sender: UIButton) {
         guard  let email = emailTextField.text, let password = passwordTextField.text,!email.isEmpty , !password.isEmpty,password.count >= 6 else {
-            self.showAlter(message: "enter all ")
+            self.showAlter(message: "Please enter all information")
             return
         }
         spinner.show(in: view)
@@ -61,11 +64,30 @@ class LoginViewController: UIViewController {
                 print(authResult?.user.email)
                 return
             }
-            UserDefaults.standard.set(email,forKey: email)
+            
             let user = result.user
             print("Created User: \(user)")
-            let conversationVC = self?.storyboard?.instantiateViewController(withIdentifier: "ConversationsViewController") as! ConversationsViewController
-            self?.navigationController?.pushViewController(conversationVC, animated: true)
+            
+            UserDefaults.standard.set(email,forKey: "email")
+            
+            let safeEmail = DatabaseManger.safeEmail(emailAddress: email)
+            DatabaseManger.shared.getDataFor(path: safeEmail) { result in
+                switch result{
+                case .success(let data):
+                    guard let userData = data as? [String: Any],
+                          let firstName = userData["first_name"] as? String,
+                          let lastName = userData["last_name"] as? String else{
+                              return
+                          }
+                    UserDefaults.standard.set("\(firstName) \(lastName)", forKey: "name")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+            
+//            let conversationVC = self?.storyboard?.instantiateViewController(withIdentifier: "ConversationsViewController") as! ConversationsViewController
+            self?.navigationController?.dismiss( animated: true)
         }
        // loginUser()
     }
@@ -73,39 +95,55 @@ class LoginViewController: UIViewController {
     
     
    
-//    func loginUser(){
-//        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion:{ authResult, error in
-//
-//            guard let result = authResult, error == nil else {
-//                print("Failed to log in user with email \(self.emailTextField.text)")
-//                    return
-//                }
-//
-//                let user = result.user
-//            print("logged in user: \(user)")
-//            let conversationVC = self.storyboard?.instantiateViewController(withIdentifier: "ConversationsViewController") as! ConversationsViewController
-//            self.navigationController?.pushViewController(conversationVC, animated: true)
-//
-//
-//
-////            if  let error = error {
-////                print("Error Status : \(error.localizedDescription)")
-////                self.showAlter(message: error.localizedDescription)
-////            } else {
-////                self.showAlter(message: "Please enter a vaild email")
-////            }
-//        })
-//
-//    }
+
     func showAlter(message : String){
-        let alterVC = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
+        let alterVC = UIAlertController(title: "Woops", message: message, preferredStyle: UIAlertController.Style.alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alterVC.addAction(action)
         self.present(alterVC, animated: true, completion: nil)
     }
     
     @IBAction func containueFacebookButton(_ sender: UIButton) {
-     
+        
+//        guard  let email = emailTextField.text, let password = passwordTextField.text,!email.isEmpty , !password.isEmpty,password.count >= 6 else {
+//            self.showAlter(message: "enter all ")
+//            return
+//        }
+//        guard let token = result?.token?.tokenString else{
+//            print("user Failed to login with facebook ")
+//            return
+//        }
+//        
+//        let credential = FacebookAuthProvider.credential(withAccessToken: token)
+//        FirebaseAuth.Auth.auth().signIn(with: credential, completion: {[weak self] authResult, error  in
+//            guard let strongSelf = self else {
+//                return
+//            }
+//            let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields":"email,name"], tokenString: token, version: nil, httpMethod: .get)
+//            facebookRequest.start(completionHandler:{_, result , error in
+//                guard let result = result as? [String:Any] , error == nil else {
+//                    print("Failed to make facebook graph request")
+//                }
+//                print("\(result)")
+//                let credential = FacebookAuthProvider.credential(withAccessToken: token)
+//                FirebaseAuth.Auth.auth().signIn(with: credential, completion: {[weak self] authResult, error  in
+//                    guard let strongSelf = self else {
+//                        return
+//                    }
+//                
+//                    guard   authResult != nil, error == nil else {
+//                        if let error = error {
+//                        print("Facebook credential login failed\(error) ")
+//                        }
+//                        return
+//                    }
+//                    print("Successfully logged user in ")
+//                    strongSelf.navigationController?.dismiss(animated: true)
+//                })
+//
+//            })
+//            
+//        })
           
     }
     

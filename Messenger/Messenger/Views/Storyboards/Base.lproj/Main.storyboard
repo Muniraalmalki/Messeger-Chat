@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YJF-RW-YiO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="amu-FG-b4h">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -297,7 +297,7 @@
         <scene sceneID="khZ-0f-Gjb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CD3-tb-TNr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="Q7K-uc-f4G"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="Q7K-uc-f4G"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="IuW-4E-D0m">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -338,33 +338,8 @@
                     <view key="view" contentMode="scaleToFill" id="aWv-Bk-6Yw" customClass="conver">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BxB-lE-Nmf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Ece-dR-3dc">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ece-dR-3dc" id="lJ2-Mk-4d0" customClass="Cell">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="LjD-Vg-Yqq" id="vpj-4A-7Db"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="G2D-rz-Bvw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="BxB-lE-Nmf" firstAttribute="trailing" secondItem="G2D-rz-Bvw" secondAttribute="trailing" id="3YC-Mh-ygi"/>
-                            <constraint firstItem="BxB-lE-Nmf" firstAttribute="top" secondItem="G2D-rz-Bvw" secondAttribute="top" id="67p-dk-he2"/>
-                            <constraint firstAttribute="bottom" secondItem="BxB-lE-Nmf" secondAttribute="bottom" id="sTj-B4-2xG"/>
-                            <constraint firstItem="BxB-lE-Nmf" firstAttribute="leading" secondItem="G2D-rz-Bvw" secondAttribute="leading" id="vm2-4y-SF7"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chats" id="5Fp-sD-2HU"/>
                 </viewController>
@@ -379,18 +354,41 @@
                     <view key="view" contentMode="scaleToFill" id="KTz-QQ-rmi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="v6R-pN-Z69">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="0ti-FR-LlJ">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0ti-FR-LlJ" id="dzJ-mq-mAd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9bD-PQ-q2h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="v6R-pN-Z69" firstAttribute="top" secondItem="9bD-PQ-q2h" secondAttribute="top" id="Ezh-60-l8P"/>
+                            <constraint firstItem="9bD-PQ-q2h" firstAttribute="bottom" secondItem="v6R-pN-Z69" secondAttribute="bottom" id="Gih-IL-dz7"/>
+                            <constraint firstItem="v6R-pN-Z69" firstAttribute="trailing" secondItem="9bD-PQ-q2h" secondAttribute="trailing" id="O6B-Mc-bKY"/>
+                            <constraint firstItem="v6R-pN-Z69" firstAttribute="leading" secondItem="9bD-PQ-q2h" secondAttribute="leading" id="db2-zv-0jX"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="heP-wM-u3i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5450.7246376811599" y="-237.05357142857142"/>
+            <point key="canvasLocation" x="5457.971014492754" y="-237.05357142857142"/>
         </scene>
     </scenes>
     <resources>
         <image name="Facebook_Messenger-Logo.wine" width="3000" height="2000"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">

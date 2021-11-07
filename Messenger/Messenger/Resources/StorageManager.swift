@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseStorage
+import MessageKit
 
 
 
@@ -15,7 +16,13 @@ final class StorageManager {
     static let shared = StorageManager() // static property so we can get an instance of this storage manager
     
     private let storage = Storage.storage().reference()
-    
+    private var safeSender : Sender? {
+        guard let email = UserDefaults.standard.value(forKey: "email") else{
+            return nil
+        }
+        return Sender(photoURL: "",senderId: email as! String, displayName: "munira") 
+    }
+
     
     
     public typealias UploadPictureCompletion = (Result<String, Error>) -> Void // type alias makes things cleaner

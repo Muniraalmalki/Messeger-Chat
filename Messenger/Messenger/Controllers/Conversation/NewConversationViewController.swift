@@ -9,11 +9,13 @@ import UIKit
 import JGProgressHUD
 class NewConversationViewController: UIViewController {
     
+    
     private let spinner = JGProgressHUD(style: .dark)
     private var users = [[String:String]]()
     private var hasFetched = false
     private var results = [[String:String]]()
-    
+    // passes data back to the conversation list
+    public var completion:(([String:String])->(Void))?
     private let searchBar : UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search For Users..."
@@ -40,6 +42,10 @@ class NewConversationViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(noResultsLabel)
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
         searchBar.delegate = self
         view.backgroundColor = .white
         navigationController?.navigationBar.topItem?.titleView = searchBar
@@ -49,15 +55,50 @@ class NewConversationViewController: UIViewController {
         searchBar.becomeFirstResponder()
        
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        tableView.frame = view.bounds
+        noResultsLabel.frame = CGRect(x: view.frame.width/4, y: (view.frame.height-200)/2, width: view.frame.width/2, height: 100)
+    }
     @objc private func dismissSelf(){
          dismiss(animated: true, completion: nil)
      }
 }
+extension NewConversationViewController:UITableViewDataSource,UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return results.count
+    }
+    
+   
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath)
+        cell.textLabel?.text = results[indexPath.row]["name"]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // start conversation
+        let targetUserData = results[indexPath.row]
+        
+        dismiss(animated: true, completion:{[weak self] in 
+            // call completion and pass target user data
+            self?.completion?(targetUserData)
+        })
+        
+        
+    }
+}
 extension NewConversationViewController: UISearchBarDelegate{
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text , !text.replacingOccurrences(of: "", with: "").isEmpty else{
             return
         }
+        
+        searchBar.resignFirstResponder()
+        
         results.removeAll()
         spinner.show(in: view)
         self.searchUser(query: text)
@@ -72,6 +113,7 @@ extension NewConversationViewController: UISearchBarDelegate{
             DatabaseManger.shared.getAllUsers(completion: {[weak self] result in
                 switch result {
                 case .success(let usersCollections):
+                    self?.hasFetched = true
                     self?.users = usersCollections
                     self?.filterUsers(with: query)
                 case .failure(let error):
@@ -87,13 +129,16 @@ extension NewConversationViewController: UISearchBarDelegate{
         guard hasFetched else {
             return
         }
+        
+        self.spinner.dismiss()
+        
         var results :[[String:String]] = self.users.filter({
             guard let name = $0["name"]?.lowercased()  else {
                 return false
             }
             return name.hasPrefix(term.lowercased())
         })
-        
+        self.results = results
         updateUI()
     }
     func updateUI(){
